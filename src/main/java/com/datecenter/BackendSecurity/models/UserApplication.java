@@ -13,14 +13,15 @@ import java.util.Set;
 public class UserApplication implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
+    @Column(name = "username", unique =true)
     private String username;
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "UserRole",
-            joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "userId", referencedColumnName = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "roleId"))
     private Set<Role> authorities;
 
     public UserApplication() {
