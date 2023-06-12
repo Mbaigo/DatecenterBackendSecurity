@@ -19,7 +19,7 @@ public class DatecenterBackendSecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DatecenterBackendSecurityApplication.class, args);
 	}
-	@Bean
+	/*@Bean
 	CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder encoder){
 		return  args -> {
 			if (roleRepository.findByAuthority("ADMIN").isPresent()) return;
@@ -30,6 +30,6 @@ public class DatecenterBackendSecurityApplication {
 			UserApplication admin = new UserApplication(1, "admin", encoder.encode("abbay"), roles);
 			userRepository.save(admin);
 		};
-	}
+	}*/
 
 }
